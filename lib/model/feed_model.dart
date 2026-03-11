@@ -1,9 +1,9 @@
 class FeedModel {
-  final String image;
-  final String title;
-  final String description;
+  String? image;
+  String? title;
+  String? description;
 
-  const FeedModel({
+  FeedModel({
     required this.image,
     required this.title,
     required this.description,

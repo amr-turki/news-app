@@ -14,7 +14,7 @@ class FeedBuilder extends StatelessWidget {
         context,
         index,
       ) {
-        FeedItem(model: models[index]);
+        return FeedItem(model: models[index]);
       }),
     );
   }

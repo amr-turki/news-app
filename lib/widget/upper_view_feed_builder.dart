@@ -6,7 +6,8 @@ import 'package:news_app/widget/feed_builder.dart';
 import 'package:news_app/widget/feed_item.dart';
 
 class UpperViewFeedBuilder extends StatefulWidget {
-  const UpperViewFeedBuilder({super.key});
+  const UpperViewFeedBuilder({super.key, required this.category});
+  final String category;
 
   @override
   State<UpperViewFeedBuilder> createState() => _UpperViewFeedBuilderState();
@@ -24,7 +25,7 @@ class _UpperViewFeedBuilderState extends State<UpperViewFeedBuilder> {
   }
 
   Future<void> FetchData() async {
-    models = await NewsService(Dio()).FetchData(category: 'general');
+    models = await NewsService(Dio()).FetchData(category: widget.category);
     isLoading = false;
     setState(() {});
   }
@@ -32,13 +33,7 @@ class _UpperViewFeedBuilderState extends State<UpperViewFeedBuilder> {
   @override
   Widget build(BuildContext context) {
     return isLoading
-        ? Center(child: CircularProgressIndicator())
-        : ListView.builder(
-            physics: NeverScrollableScrollPhysics(),
-            itemCount: models.length,
-            itemBuilder: (context, index) {
-              return FeedBuilder(models: models);
-            },
-          );
+        ? SliverToBoxAdapter(child: Center(child: CircularProgressIndicator()))
+        : FeedBuilder(models: models);
   }
 }

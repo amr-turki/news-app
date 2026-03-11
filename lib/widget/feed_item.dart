@@ -17,20 +17,20 @@ class FeedItem extends StatelessWidget {
               fit: BoxFit.cover,
               height: 200,
               width: double.infinity,
-              model.image,
+              model.image ?? 'https://i.ytimg.com/vi/EWdwvvwUUUQ/sddefault.jpg',
             ),
           ),
 
           Text(
             overflow: TextOverflow.ellipsis,
             maxLines: 2,
-            model.title,
+            model.title ?? 'Failed To Load',
             style: TextStyle(fontSize: 14, color: Colors.black),
           ),
           Text(
             overflow: TextOverflow.ellipsis,
             maxLines: 2,
-            model.description,
+            model.description ?? 'Failed To Load',
             style: TextStyle(fontSize: 14, color: Colors.black),
           ),
         ],
