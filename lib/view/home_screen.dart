@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/model/category_model.dart';
+import 'package:news_app/widget/category.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -28,6 +30,12 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+      body: Category(
+        model: CategoryModel(
+          image: 'assests/images/business.jpg',
+          text: 'business',
         ),
       ),
     );
