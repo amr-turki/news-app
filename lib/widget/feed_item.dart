@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/model/feed_model.dart';
 
@@ -13,11 +14,18 @@ class FeedItem extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadiusGeometry.circular(18),
-            child: Image.network(
+
+            child: CachedNetworkImage(
               fit: BoxFit.cover,
               height: 200,
+              
               width: double.infinity,
-              model.image ?? 'https://i.ytimg.com/vi/EWdwvvwUUUQ/sddefault.jpg',
+
+              imageUrl:
+                  model.image ??
+                  'https://i.ytimg.com/vi/EWdwvvwUUUQ/sddefault.jpg',
+              placeholder: (context, url) => CircularProgressIndicator(),
+              errorWidget: (context, url, error) => Icon(Icons.error),
             ),
           ),
 
