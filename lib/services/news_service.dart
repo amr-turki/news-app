@@ -6,7 +6,7 @@ class NewsService {
 
   NewsService(this.dio);
 
-  Future<List<FeedModel>> main({required String category}) async {
+  Future<List<FeedModel>> FetchData({required String category}) async {
     final response = await dio.get(
       'https://newsapi.org/v2/top-headlines?country=us&apiKey=08e66f3cfd044229961a9ebbce43fe28&country=$category',
     );
