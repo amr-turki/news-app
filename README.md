@@ -46,7 +46,7 @@ lib/
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/your-username/news_app.git
+   git clone https://github.com/amr-turki/news_app.git
    cd news_app
    ```
 
