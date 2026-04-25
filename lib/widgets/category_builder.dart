@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:news_application/models/category_model.dart';
-import 'package:news_application/widgets/category_item.dart';
+import 'package:news_application/widgets/category_widget.dart';
 
 class CategoryBuilder extends StatelessWidget {
   const CategoryBuilder({super.key});
