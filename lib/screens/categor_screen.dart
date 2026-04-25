@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:news_application/widgets/category_builder.dart';
 import 'package:news_application/widgets/upper_view_feed_builder.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class CategoryView extends StatelessWidget {
+  const CategoryView({super.key, required this.category});
 
+  final String category;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,10 +35,9 @@ class HomeScreen extends StatelessWidget {
       ),
       body: CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(child: SizedBox(height: 35)),
-          SliverToBoxAdapter(child: CategoryBuilder()),
           SliverToBoxAdapter(child: SizedBox(height: 25)),
-          UpperViewFeedBuilder(category: 'general'),
+
+          UpperViewFeedBuilder(category: category),
         ],
       ),
     );
